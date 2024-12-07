@@ -72,16 +72,38 @@ void fillArrays() {
 	}
 }
 
-int main() {
-	std::vector<int> arr1example = {1,2,3,3,3,4};
-	std::vector<int> arr2example = { 3,3,3,4,5,9 };
+
+int  calculateFrequence(int target,std::vector<int> arr) {
+	int count = 0;
 	
+	for (int i = 0; i < arr.size(); i++) {
+		if (target == arr[i]) {
+			count += 1;
+		}
+	}
 
+	return count;
 
-	//displayValue(arr1, "array1");
-	//displayValue(arr2, "array2");
+}
+
+int frequencyResult() {
+	int result = 0;
+	for (int i = 0; i < arr1.size(); i++) {
+		int apperance = calculateFrequence(arr1[i], arr2);
+		result += arr1[i] * apperance;
+	}
+	return result;
+}
+
+int main() {
+	std::vector<int> arr1example = { 3,4,2,1,3,3};
+	std::vector<int> arr2example = { 4,3,5,3,9,3 };
+	
+ 
 	fillArrays();
 
+	int result = frequencyResult();
+	std::cout << "Total frequency " << result << "\n";
 	int distance = 0;
 	
 	int length = arr1.size();
@@ -104,8 +126,11 @@ int main() {
 
 	}
 
-	std::cout << "total distance is " << distance;
+	std::cout << "Total distance is " << distance << "\n";
 
+
+
+ 
  
 	return 0;
 }
